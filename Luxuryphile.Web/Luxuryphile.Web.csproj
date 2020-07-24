@@ -12,8 +12,4 @@
     <ProjectReference Include="..\Luxuryphile.CORE\Luxuryphile.CORE.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models" />
-  </ItemGroup>
-
 </Project>

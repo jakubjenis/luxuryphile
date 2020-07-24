@@ -1,15 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Luxuryphile.CORE;
 using Luxuryphile.CORE.Database;
-using Luxuryphile.Web.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Luxuryphile.Web.Pages
+namespace Luxuryphile.Web.Pages.Orders
 {
     public class IndexModel : PageModel
     {
@@ -24,9 +21,19 @@ namespace Luxuryphile.Web.Pages
             _context = context;
         }
 
-        public async Task<IActionResult> OnGet()
+        public async Task OnGet()
         {
-            return RedirectToPage("Orders/Index");
+            Orders = await _context.Orders.Select(o => new OrderModel
+            {
+                Id = o.Id,
+                Name = o.ClientName,
+                State = o.State,
+                City = o.AddressCity,
+                Country = o.AddressCountry,
+                Email = o.ClientEmail,
+                Street = o.AddressStreet,
+                ZipCode = o.AddressZipCode
+            }).ToListAsync();
         }
     }
 }
