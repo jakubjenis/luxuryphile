@@ -23,7 +23,9 @@ namespace Luxuryphile.Web.Pages.Orders
 
         public async Task OnGet()
         {
-            Orders = await _context.Orders.Select(o => new OrderModel
+            Orders = await _context.Orders
+                .OrderByDescending(o => o.Id)
+                .Select(o => new OrderModel
             {
                 Id = o.Id,
                 Name = o.ClientName,

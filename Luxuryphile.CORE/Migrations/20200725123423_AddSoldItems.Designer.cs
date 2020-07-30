@@ -4,14 +4,16 @@ using Luxuryphile.CORE.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Luxuryphile.CORE.Migrations
 {
     [DbContext(typeof(LuxuryContext))]
-    partial class LuxuryContextModelSnapshot : ModelSnapshot
+    [Migration("20200725123423_AddSoldItems")]
+    partial class AddSoldItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -18,13 +18,14 @@
     </thead>
     @foreach (var order in Model.Orders)
     {
-        <tr>
+        <tr class="@(order.Id %3 ==0 ? "table-success" : "")" >
             <td>#@order.Id</td>
             <td>@order.Name</td>
             <td>@order.AddressOneLine</td>
             <td>123 Czk</td>
             <td>
                 <a asp-for asp-area="" asp-page="/Orders/Detail" asp-route-id="@order.Id" class="btn btn-sm btn-dark">Otevřít</a>
+                @* <a asp-for asp-area="" asp-page="/Orders/Client" asp-route-id="@order.Id" class="btn btn-sm btn-dark">Otevřít</a> *@
             </td>
         </tr>
     }

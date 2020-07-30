@@ -1,0 +1,79 @@
+﻿@page "{id}"
+@model ClientModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1 class="display-4">Objednávka #@Model.Order.Id</h1>
+
+<hr/>
+
+<div class="row">
+    <div class="col-md-4">
+        <b>@Model.Order.Name</b><br/>
+        @Model.Order.Email
+    </div>
+    <div class="col-md-4">
+        <b>Datum vytvoření</b><br/>
+        25.6.2020
+    </div>
+</div>
+
+<hr/>
+
+<table class="table table-hover text-right">
+  <thead class="thead-dark">
+      <tr>
+          <th></th>
+          <th></th>
+          <th>Dph</th>
+          <th>Cena za jednotku</th>
+          <th>Celkem bez DPH</th>
+      </tr>
+  </thead>
+  @foreach (var item in Model.Order.SoldItems)
+  {
+      <tr>
+          <td>@item.Quantity @item.UnitName</td>
+          <td>@item.Name</td>
+          <td>@item.VatRateRate %</td>
+          <td>@item.UnitPrice.ToString("0.00") CZK</td>
+          <td>@item.Price.ToString("0.00") CZK</td>
+      </tr>
+  }
+</table>
+
+<hr/>
+
+<p>Vaše objednávka je skoro hotová. Potřebujeme jenom pár údajů</p>
+<h4>Adresa</h4>
+
+<form method="post">
+    <input asp-for="Order.Id" type="hidden"/>
+    <div class="form-group">
+        <label asp-for="Order.Street">Ulice</label>
+        <input asp-for="Order.Street" class="form-control" placeholder="Ulice">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Order.City">Město</label>
+            <input asp-for="Order.City" class="form-control" placeholder="Město">
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Order.Country">Země</label>
+            <select asp-for="Order.Country" class="form-control">
+                <option selected value="CZ">Česká republika</option>
+                <option value="SK">Slovensko</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label asp-for="Order.ZipCode">PSČ</label>
+            <input asp-for="Order.ZipCode" class="form-control" placeholder="PSČ">
+        </div>
+    </div>
+
+    <hr/>
+
+
+    <button type="submit" class="btn btn-dark">Odeslat</button>
+</form>

@@ -40,7 +40,6 @@ namespace Luxuryphile.Web.Pages
 
         public async Task OnGet()
         {
-            _context.Database.Migrate();
             var orders = await _context.Orders.ToListAsync();
             
             Clients = await _fakturoidClient.GetSubjects();
@@ -49,7 +48,7 @@ namespace Luxuryphile.Web.Pages
 
             Order = new OrderModel
             {
-                Name = "Fero Hore",
+                Name = "Fero Hora",
                 Street = "Pod Horou 19",
                 City = "Prievidza",
                 Country = "CZK",
@@ -67,21 +66,17 @@ namespace Luxuryphile.Web.Pages
                 return Page();
             }
 
-            //await _fakturoidClient.CreateSubject(Customer.Name, Customer.Email, Customer.Street, Customer.City, Customer.ZipCode, Customer.Country);
-
-            var validSoldItems = SoldItems.Where(o => o.Quantity > 0).ToList();
-            var invoiceId = await _fakturoidClient.CreateInvoice(10626301, validSoldItems, true);
-            
             var order = new Order
             {
                 State = OrderState.Created,
-                InvoiceId =  invoiceId,
+                InvoiceId =  null,
                 ClientName = Order.Name,
                 ClientEmail = Order.Email,
                 AddressCity = Order.City,
                 AddressCountry = Order.Country,
                 AddressStreet = Order.Street,
-                AddressZipCode = Order.ZipCode
+                AddressZipCode = Order.ZipCode,
+                SoldItems = SoldItems
             };
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();

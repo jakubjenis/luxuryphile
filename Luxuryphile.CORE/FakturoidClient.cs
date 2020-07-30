@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Altairis.Fakturoid.Client;
+using Luxuryphile.CORE.Database;
 using Luxuryphile.Web.Models;
 
 namespace Luxuryphile.CORE
@@ -98,6 +99,11 @@ namespace Luxuryphile.CORE
 
             var newInvoiceId = await _context.Invoices.CreateAsync(newInvoice);
             return newInvoiceId;
+        }
+
+        public async Task<JsonInvoice> GetInvoice(int invoiceId)
+        {
+            return await _context.Invoices.SelectSingleAsync(invoiceId);
         }
 
         public async Task<byte[]> DownloadInvoice(int id)

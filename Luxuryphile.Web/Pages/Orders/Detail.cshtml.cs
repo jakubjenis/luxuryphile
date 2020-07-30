@@ -28,7 +28,6 @@ namespace Luxuryphile.Web.Pages.Orders
             Order = new OrderModel
             {
                 Id = order.Id,
-                InvoiceId = order.InvoiceId,
                 Name = order.ClientName,
                 State = order.State,
                 City = order.AddressCity,

@@ -12,4 +12,10 @@
     <ProjectReference Include="..\Luxuryphile.CORE\Luxuryphile.CORE.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Altairis.Fakturoid.Client, Version=2.8.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\Luxuryphile.CORE\Altairis.Fakturoid.Client.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

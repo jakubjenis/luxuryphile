@@ -1,4 +1,4 @@
-﻿namespace Luxuryphile.CORE
+﻿namespace Luxuryphile.CORE.Database
 {
     public class SoldItem
     {
@@ -22,10 +22,13 @@
             UnitName = "ks";
         }
 
+        public int Id { get; set; }
         public string Name { get; set; }
         public decimal Quantity { get; set; }
         public string UnitName { get; set; }
         public decimal UnitPrice { get; set; }
+
+        public decimal Price => UnitPrice * Quantity;
         public decimal VatRateRate { get; set; }
 
         public static SoldItem CreateItem(string name, decimal quantity, decimal unitPrice, bool newItem)

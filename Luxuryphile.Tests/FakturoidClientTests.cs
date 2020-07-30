@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altairis.Fakturoid.Client;
 using Luxuryphile.CORE;
+using Luxuryphile.CORE.Database;
 using Xunit;
 
 namespace Luxuryphile.Tests

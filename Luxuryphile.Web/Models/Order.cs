@@ -1,4 +1,6 @@
-﻿namespace Luxuryphile.CORE.Database
+﻿using System.Collections.Generic;
+
+namespace Luxuryphile.CORE.Database
 {
     public class OrderModel
     {
@@ -12,12 +14,13 @@
         
         public string Country { get; set; }
 
+        public List<SoldItem> SoldItems { get; set; }
+
         public string AddressOneLine =>
             City != null || Street != null || ZipCode != null 
                 ? $"{Street}, {City}, {ZipCode}"
                 : string.Empty;
 
         public OrderState State { get; set; }
-        public int InvoiceId { get; set; }
     }
 }

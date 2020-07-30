@@ -6,10 +6,10 @@
 
 <div>
     <h1 class="display-4">Objednávka #@Model.Order.Id</h1>
-    
 </div>
 
-<a  class="btn btn-dark" asp-page-handler="DownloadInvoice" asp-route-id="@Model.Order.InvoiceId">
+<a  class="btn btn-dark" asp-page-handler="DownloadInvoice">
+@* <a  class="btn btn-dark" asp-page-handler="DownloadInvoice" asp-route-id="@Model.Order.InvoiceId"> *@
     <span class="glyphicon glyphicon-cloud-download" aria-hidden="true" ></span> Faktura
 </a>
 <a  class="btn btn-success" asp-page-handler="MarkAsPaid" asp-route-id="@Model.Order.Id">
