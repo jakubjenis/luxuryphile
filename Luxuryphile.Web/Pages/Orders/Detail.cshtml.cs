@@ -22,7 +22,9 @@ namespace Luxuryphile.Web.Pages.Orders
 
         public async Task<IActionResult> OnGet(int id)
         {
-            var order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+            var order = await _context.Orders
+                .Include(o => o.SoldItems)
+                .FirstOrDefaultAsync(o => o.Id == id);
             if (order == null) return NotFound();
 
             Order = new OrderModel
@@ -34,7 +36,8 @@ namespace Luxuryphile.Web.Pages.Orders
                 Country = order.AddressCountry,
                 Email = order.ClientEmail,
                 Street = order.AddressStreet,
-                ZipCode = order.AddressZipCode
+                ZipCode = order.AddressZipCode,
+                SoldItems = order.SoldItems
             };
             
             return Page();
@@ -46,6 +49,33 @@ namespace Luxuryphile.Web.Pages.Orders
             var fileStreamResult = new FileContentResult(pdf, "application/pdf");
             fileStreamResult.FileDownloadName = "Faktura.pdf";
             return fileStreamResult;
+        }
+        
+        public async Task<ActionResult> OnGetMarkAsPaid(int id)
+        {
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(o => o.Id == id);
+            order.State = OrderState.Paid;
+            await _context.SaveChangesAsync();
+            return RedirectToPage("Detail");
+        }
+        
+        public async Task<ActionResult> OnGetCancel(int id)
+        {
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(o => o.Id == id);
+            order.State = OrderState.Cancelled;
+            await _context.SaveChangesAsync();
+            return RedirectToPage("Detail");
+        }
+        
+        public async Task<ActionResult> OnGetMarkAsDelivered(int id)
+        {
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(o => o.Id == id);
+            order.State = OrderState.Delivered;
+            await _context.SaveChangesAsync();
+            return RedirectToPage("Detail");
         }
     }
 }

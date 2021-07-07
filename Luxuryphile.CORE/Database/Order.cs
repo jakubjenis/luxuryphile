@@ -25,8 +25,8 @@ namespace Luxuryphile.CORE.Database
     public enum OrderState
     {
         Created,
-        Sent,
         Paid,
-        Shipped
+        Delivered,
+        Cancelled
     }
 }

@@ -9,9 +9,6 @@ namespace Luxuryphile.CORE.Database
         {
         }
         
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer("Server=luxuryphile.database.windows.net;Database=luxuryphile_orders;User=luxuryphile_user;Password=MojeHeslo1!;MultipleActiveResultSets=true");
-        
         public LuxuryContext(DbContextOptions<LuxuryContext> options) : base(options)
         {
         }
