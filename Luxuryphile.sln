@@ -3,30 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luxuryphile.Web", "Luxuryphile.Web\Luxuryphile.Web.csproj", "{7297E7F9-7BC8-4AA4-BB42-F057C2473CE6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luxuryphile.CORE", "Luxuryphile.CORE\Luxuryphile.CORE.csproj", "{E901855E-0596-4F07-89D0-72BD85A9F0F8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luxuryphile.Tests", "Luxuryphile.Tests\Luxuryphile.Tests.csproj", "{07521FCE-35C4-44E6-9DC0-E44A1612CE86}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7297E7F9-7BC8-4AA4-BB42-F057C2473CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7297E7F9-7BC8-4AA4-BB42-F057C2473CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7297E7F9-7BC8-4AA4-BB42-F057C2473CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7297E7F9-7BC8-4AA4-BB42-F057C2473CE6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E901855E-0596-4F07-89D0-72BD85A9F0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E901855E-0596-4F07-89D0-72BD85A9F0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E901855E-0596-4F07-89D0-72BD85A9F0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E901855E-0596-4F07-89D0-72BD85A9F0F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07521FCE-35C4-44E6-9DC0-E44A1612CE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07521FCE-35C4-44E6-9DC0-E44A1612CE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07521FCE-35C4-44E6-9DC0-E44A1612CE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07521FCE-35C4-44E6-9DC0-E44A1612CE86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
