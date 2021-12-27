@@ -1,12 +1,49 @@
+@inject NavigationManager _navigationManager 
+
+@code {
+    private void Register()
+    {
+        _navigationManager.NavigateTo("/Identity/Account/Register", true);
+    }
+    private void Login()
+    {
+        _navigationManager.NavigateTo("/Identity/Account/Login", true);
+    }
+}
+
 <AuthorizeView>
     <Authorized>
-        <a href="Identity/Account/Manage">Hello, @context.User.Identity?.Name!</a>
+        @* <MudNavLink href="Identity/Account/Manage">Hello, @context.User.Identity?.Name!</MudNavLink> *@
         <form method="post" action="Identity/Account/LogOut">
-            <button type="submit" class="nav-link btn btn-link">Log out</button>
+            <MudButton type="submit" class="nav-link btn btn-link">Log out</MudButton>
         </form>
     </Authorized>
     <NotAuthorized>
-        <a href="Identity/Account/Register">Register</a>
-        <a href="Identity/Account/Login">Log in</a>
+        @* <MudMenu FullWidth="true" ActivationEvent="@MouseEvent.MouseOver"> *@
+        @*     <ActivatorContent> *@
+        @*         <MudChip Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Warning"></MudChip> *@
+        @*     </ActivatorContent> *@
+        @*     <ChildContent> *@
+        @*         <MudMenuItem> *@
+        @*             Login *@
+        @*         </MudMenuItem> *@
+        @*     </ChildContent> *@
+        @* </MudMenu> *@
+        <MudButton href="Identity/Account/Register" Color="Color.Inherit" OnClick="Register">Register</MudButton>
+        <MudButton href="Identity/Account/Login" Color="Color.Inherit" OnClick="Login">Log in</MudButton>
     </NotAuthorized>
 </AuthorizeView>
+
+
+@* <AuthorizeView> *@
+@*     <Authorized> *@
+@*         <a href="Identity/Account/Manage">Hello, @context.User.Identity?.Name!</a> *@
+@*         <form method="post" action="Identity/Account/LogOut"> *@
+@*             <button type="submit" class="nav-link btn btn-link">Log out</button> *@
+@*         </form> *@
+@*     </Authorized> *@
+@*     <NotAuthorized> *@
+@*         <a href="Identity/Account/Register">Register</a> *@
+@*         <a href="Identity/Account/Login">Log in</a> *@
+@*     </NotAuthorized> *@
+@* </AuthorizeView> *@
