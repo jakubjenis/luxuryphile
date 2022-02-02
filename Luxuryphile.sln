@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luxuryphile.BlazorWasm", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luxuryphile.RazorWithBlazorWasm", "Luxuryphile.RazorWithBlazorWasm\Luxuryphile.RazorWithBlazorWasm.csproj", "{539A6789-E071-4C4D-80DD-1A5098B6A3D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luxuryphile.BlazorLib", "Luxuryphile.BlazorLib\Luxuryphile.BlazorLib.csproj", "{ADA621A6-452C-4BDE-A21E-1E3A602105DE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,10 +41,6 @@ Global
 		{539A6789-E071-4C4D-80DD-1A5098B6A3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{539A6789-E071-4C4D-80DD-1A5098B6A3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{539A6789-E071-4C4D-80DD-1A5098B6A3D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ADA621A6-452C-4BDE-A21E-1E3A602105DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ADA621A6-452C-4BDE-A21E-1E3A602105DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ADA621A6-452C-4BDE-A21E-1E3A602105DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ADA621A6-452C-4BDE-A21E-1E3A602105DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +51,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B58AA21E-AE8D-4C00-A91E-17E0D69E7D93} = {970D2216-95DD-4BFF-8265-1B6FAAD40CA8}
 		{539A6789-E071-4C4D-80DD-1A5098B6A3D9} = {970D2216-95DD-4BFF-8265-1B6FAAD40CA8}
-		{ADA621A6-452C-4BDE-A21E-1E3A602105DE} = {970D2216-95DD-4BFF-8265-1B6FAAD40CA8}
 	EndGlobalSection
 EndGlobal
