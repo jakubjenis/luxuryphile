@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Altairis.Fakturoid.Client;
-using Luxuryphile.CORE.Database;
-using Luxuryphile.Web.Models;
+﻿using Altairis.Fakturoid.Client;
+using Luxuryphile.Fakturoid.Data;
 
-namespace Luxuryphile.CORE
+namespace Luxuryphile.Fakturoid
 {
     public class FakturoidClient
     {
@@ -77,7 +73,7 @@ namespace Luxuryphile.CORE
             return subjectId;
         }
 
-        public async Task<int> CreateInvoice(int subjectId, List<SoldItem> soldItems, bool proforma)
+        public async Task<int> CreateInvoice(int subjectId, List<InvoiceItem> soldItems, bool proforma)
         {
             var newInvoice = new JsonInvoice
             {
@@ -93,7 +89,7 @@ namespace Luxuryphile.CORE
                     quantity = soldItem.Quantity,
                     unit_name = soldItem.UnitName,
                     unit_price = soldItem.UnitPrice,
-                    vat_rate = soldItem.VatRateRate
+                    vat_rate = soldItem.VatRate
                 });
             }
 

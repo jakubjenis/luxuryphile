@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using Altairis.Fakturoid.Client;
 
-namespace Altairis.Fakturoid.Client
+namespace Luxuryphile.Fakturoid
 {
   /// <summary>Proxy class for working with subjects/contacts.</summary>
   public class FakturoidSubjectsProxy : FakturoidEntityProxy
@@ -16,11 +15,11 @@ namespace Altairis.Fakturoid.Client
     /// <returns>
     /// List of <see cref="T:Altairis.Fakturoid.Client.JsonSubject" /> instances.
     /// </returns>
-    public IEnumerable<JsonSubject> Select(string query = null)
+    public IEnumerable<JsonSubject> Select(string? query = null)
     {
-      return this.GetAllPagedEntities<JsonSubject>("subjects/search.json", (object) new
+      return GetAllPagedEntities<JsonSubject>("subjects/search.json", new
       {
-        query = query
+        query
       });
     }
 
@@ -30,9 +29,9 @@ namespace Altairis.Fakturoid.Client
     /// List of <see cref="T:Altairis.Fakturoid.Client.JsonSubject" /> instances.
     /// </returns>
     public async Task<IEnumerable<JsonSubject>> SelectAsync(
-      string query = null)
+      string? query = null)
     {
-      IEnumerable<JsonSubject> pagedEntitiesAsync = await this.GetAllPagedEntitiesAsync<JsonSubject>(
+      var pagedEntitiesAsync = await this.GetAllPagedEntitiesAsync<JsonSubject>(
         "subjects/search.json", (object) new
         {
           query = query

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altairis.Fakturoid.Client;
-using Luxuryphile.CORE;
-using Luxuryphile.CORE.Database;
+using Luxuryphile.Fakturoid.Data;
 using Xunit;
 
-namespace Luxuryphile.Tests
+namespace Luxuryphile.Fakturoid.Tests
 {
     public class FakturoidClientTests
     {
@@ -15,11 +13,11 @@ namespace Luxuryphile.Tests
         {
             var client = new FakturoidClient();
 
-            var items = new List<SoldItem>
+            var items = new List<InvoiceItem>
             {
-                SoldItem.CreateItem("Hodinky rolex zlaté", 1, 253499, false),
-                SoldItem.CreateItem("Kabelka Luis Vitton, růžová", 1, 72199, true),
-                SoldItem.CreatePostItem(123.99M)
+                InvoiceItem.CreateItem("Hodinky rolex zlaté", 1, 253499, false),
+                InvoiceItem.CreateItem("Kabelka Luis Vitton, růžová", 1, 72199, true),
+                InvoiceItem.CreatePostItem(123.99M)
             };
             await client.CreateInvoice(10625976, items, false);
         }
