@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>aspnet-Luxuryphile.Web-5EEFF9D5-F693-4619-9C6A-76BCEC0E7C99</UserSecretsId>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>Luxuryphile.Web</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
