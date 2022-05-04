@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Luxuryphile.Core.Models.Contract;
+using Luxuryphile.Core.Contracts;
 using Luxuryphile.Core.Repositories;
 using Luxuryphile.Core.Services;
 using Moq;
@@ -36,8 +36,8 @@ public class ContractServiceTests
             .ReturnsAsync(12345);
 
         contractRepository
-            .Setup(o => o.Add(It.IsAny<Contract>()))
-            .Returns<Contract>(_ => Task.CompletedTask);
+            .Setup(o => o.Add(It.IsAny<Contracts.Contract>()))
+            .Returns<Contracts.Contract>(_ => Task.CompletedTask);
        
         var soldItems = new List<ContractItem>
         {
@@ -52,7 +52,7 @@ public class ContractServiceTests
         contract.Provision.Should().Be(15);
         contract.Seller.FirstName.Should().Be("Filoména");
         contract.Seller.LastName.Should().Be("Márnotratná");
-        contract.ContractNumber.Should().Be(12345);
+        contract.Number.Should().Be(12345);
         contract.DateCreated.Should().Be(utcNow);
         
         contract.ItemsToSell[0].Id.Should().NotBeEmpty();

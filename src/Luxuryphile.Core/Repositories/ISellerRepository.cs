@@ -1,4 +1,4 @@
-﻿using Luxuryphile.Core.Models.Contract;
+﻿using Luxuryphile.Core.Contracts;
 
 namespace Luxuryphile.Core.Repositories;
 

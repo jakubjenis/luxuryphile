@@ -1,4 +1,4 @@
-﻿namespace Luxuryphile.Core.Models.Contract
+﻿namespace Luxuryphile.Core.Contracts
 {
     public class ContractItem
     {

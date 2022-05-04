@@ -1,8 +1,12 @@
-﻿namespace Luxuryphile.Core.Models.Orders;
+﻿using Luxuryphile.Core.Models.Orders;
+
+namespace Luxuryphile.Core.Orders;
 
 public class Order
 {
     public int Id { get; set; }
+
+    public DateTime? TimeCreatedUtc { get; set; }
     
     public OrderState State { get; set; }
     

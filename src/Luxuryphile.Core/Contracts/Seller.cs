@@ -1,6 +1,4 @@
-﻿using Luxuryphile.Core.Models.Orders;
-
-namespace Luxuryphile.Core.Models.Contract;
+﻿namespace Luxuryphile.Core.Contracts;
 
 public class Seller
 {

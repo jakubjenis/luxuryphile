@@ -1,0 +1,12 @@
+﻿@page "/contracts/{Id:guid}"
+@using Luxuryphile.Web.Data
+@inject FakeDataService _fakeDataService
+
+<PageTitle>Smlouva</PageTitle>
+
+<h1>Smlouva @Id</h1>
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+}

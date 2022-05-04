@@ -1,12 +1,12 @@
-﻿namespace Luxuryphile.Core.Models.Contract;
+﻿namespace Luxuryphile.Core.Contracts;
 
 public class Contract
 {
-    public Contract(DateTime utcNow, Seller seller, int contractNumber, decimal provision, List<ContractItem> itemsToSell)
+    public Contract(DateTime utcNow, Seller seller, int number, decimal provision, List<ContractItem> itemsToSell)
     {
         Id = Guid.NewGuid();
         Seller = seller;
-        ContractNumber = contractNumber;
+        Number = number;
         Provision = provision;
         ItemsToSell = itemsToSell;
 
@@ -18,7 +18,7 @@ public class Contract
     public Guid Id { get; }
 
     public Seller Seller { get; }
-    public int ContractNumber { get; }
+    public int Number { get; }
 
     public DateTime DateCreated { get; }
     

@@ -1,12 +1,10 @@
-﻿using Luxuryphile.Core.Models.Contract;
-
-namespace Luxuryphile.Core.Repositories;
+﻿namespace Luxuryphile.Core.Repositories;
 
 public interface IContractRepository
 {
-    public Task Add(Contract contract);
+    public Task Add(Contracts.Contract contract);
     
-    public Task<Contract> GetById(Guid id);
+    public Task<Contracts.Contract> GetById(Guid id);
     
     public Task<int> GetNextAvailableContractNumber();
 }

@@ -1,0 +1,52 @@
+﻿@page "/contracts"
+@using Luxuryphile.Web.Data
+@using Luxuryphile.Core.DTO
+@inject FakeDataService _fakeDataService
+
+<PageTitle>Smlouvy</PageTitle>
+
+<h1>Smlouvy</h1>
+
+@if (_contracts == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#Smlouvy</th>
+            <th>Čas podepsání</th>
+            <th>Prodejce</th>
+            <th>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var contract in _contracts)
+        {
+            <tr>
+                <td>@contract.Number</td>
+                <td>@contract.DateCreated</td>
+                <td>@contract.Seller</td>
+                <td>
+                    <a class="btn btn-primary" href='/contracts/@contract.Id'>Detail</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private ContractDto[]? _contracts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _contracts = await _fakeDataService.GetContracts();
+    }
+
+}

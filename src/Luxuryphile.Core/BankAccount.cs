@@ -1,4 +1,4 @@
-﻿namespace Luxuryphile.Core.Models.Orders;
+﻿namespace Luxuryphile.Core;
 
 public class BankAccount
 {

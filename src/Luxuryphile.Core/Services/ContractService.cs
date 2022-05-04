@@ -1,5 +1,4 @@
-﻿using Luxuryphile.Core.Models.Contract;
-using Luxuryphile.Core.Models.Orders;
+﻿using Luxuryphile.Core.Contracts;
 using Luxuryphile.Core.Repositories;
 
 namespace Luxuryphile.Core.Services;

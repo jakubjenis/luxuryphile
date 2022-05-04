@@ -1,4 +1,4 @@
-﻿namespace Luxuryphile.Core.Models.Orders
+﻿namespace Luxuryphile.Core.Orders
 {
     public class SoldItem
     {
