@@ -2,10 +2,20 @@
 @using Luxuryphile.Web.Data
 @using Luxuryphile.Core.DTO
 @inject FakeDataService _fakeDataService
+@inject NavigationManager _navigationManager
 
 <PageTitle>Smlouvy</PageTitle>
 
 <h1>Smlouvy</h1>
+
+<div class="form-inline row mb-2">
+    <div class="col-sm-6">
+         <input type="text" class="form-control" @oninput="Search"/>
+    </div>   
+    <div class="col-sm-6">
+        <a class="btn btn-primary" href="/contracts/create">Nová smlouva</a>
+    </div>
+</div>
 
 @if (_contracts == null)
 {
@@ -42,11 +52,16 @@ else
 }
 
 @code {
-    private ContractDto[]? _contracts;
+    private ContractRow[]? _contracts;
+
 
     protected override async Task OnInitializedAsync()
     {
         _contracts = await _fakeDataService.GetContracts();
     }
 
+    async Task Search(ChangeEventArgs arg)
+    {
+        _contracts = await _fakeDataService.GetContracts((string?)arg.Value);
+    }
 }

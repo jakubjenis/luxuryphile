@@ -10,4 +10,8 @@
       <Folder Include="Models" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Luxuryphile.Api.Contract\Luxuryphile.Api.Contract.csproj" />
+    </ItemGroup>
+
 </Project>

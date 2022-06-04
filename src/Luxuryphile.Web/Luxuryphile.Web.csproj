@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Luxuryphile.Core\Luxuryphile.Core.csproj" />
+      <ProjectReference Include="..\Luxuryphile.Api.Contract\Luxuryphile.Api.Contract.csproj" />
     </ItemGroup>
 
 </Project>

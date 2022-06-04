@@ -18,6 +18,7 @@ public class Contract
     public Guid Id { get; }
 
     public Seller Seller { get; }
+
     public int Number { get; }
 
     public DateTime DateCreated { get; }

@@ -1,0 +1,119 @@
+﻿@page "/contracts/create/"
+@using Luxuryphile.Core.DTO
+@using Luxuryphile.Web.Data
+@using Luxuryphile.Web.Data.CreateContract
+@inject FakeDataService _fakeDataService
+@inject NavigationManager _navManager
+
+<PageTitle>Nova Smlouva</PageTitle>
+
+<h1>Nová smlouva</h1>
+
+<span>@_createContractModel.FirstName</span>
+
+<EditForm Model="_createContractModel" class="row g-3"
+          OnValidSubmit="HandleCreateContract">
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Jméno</label>
+        <InputText class="form-control" @bind-Value="_createContractModel.FirstName" />
+    </div>
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Přijmení</label>
+        <InputText class="form-control" @bind-Value="_createContractModel.LastName" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Telefon</label>
+        <input type="password" class="form-control" id="inputPassword4"
+               @bind-value="_createContractModel.Email">
+    </div>
+
+    <div class="col-md-12">
+        <label for="inputEmail4" class="form-label">Trvalé bydliště</label>
+        <InputText class="form-control"
+                   @bind-Value="_createContractModel.Address" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Datum narození</label>
+        <InputDate class="form-control" @bind-Value="_createContractModel.DateOfBirth" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Číslo občanského průkazu</label>
+        <InputText class="form-control" @bind-Value="_createContractModel.Address" />
+    </div>
+
+    <h3>Zboží</h3>
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Popis zboží</th>
+                <th>Prodejní cena</th>
+                <th>Měna</th>
+                <th>Vady</th>
+            </tr>
+            @foreach (var item in _createContractModel.Items)
+            {
+                <tr>
+                    <td>
+                        <InputText class="form-control" @bind-Value="item.Description" />
+                    </td>
+                    <td>
+                        <InputNumber class="form-control" @bind-Value="item.Price" />
+                    </td>
+                    <td>
+                        <InputText class="form-control" @bind-Value="item.Currency" />
+                    </td>
+                    <td>
+                        <InputText class="form-control" @bind-Value="item.Faults" />
+                    </td>
+                </tr>
+            }
+        </table>
+        <button @onclick="AddItem" class="btn btn-light">Přidat</button>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Vytvořit</button>
+    </div>
+
+</EditForm>
+
+@code {
+    private CreateContractModel _createContractModel = new()
+        {
+            Items = new List<CreateContractItemModel>()
+            {
+                new CreateContractItemModel()
+            }
+        };
+
+    private void AddItem()
+    {
+        _createContractModel.Items.Add(new CreateContractItemModel());
+    }
+
+    private async Task HandleCreateContract()
+    {
+        var request = new CreateContractRequest
+            (new CreateSellerRequest(
+                    _createContractModel.FirstName,
+                    _createContractModel.LastName,
+                    _createContractModel.Email,
+                    _createContractModel.Phone,
+                    _createContractModel.Address,
+                    _createContractModel.DateOfBirth,
+                    _createContractModel.DocumentNumber),
+                _createContractModel.Provision);
+
+        var contractGuid = await _fakeDataService.CreateContract(request);
+
+        _navManager.NavigateTo($"/contracts/{contractGuid}");
+
+    }
+}
