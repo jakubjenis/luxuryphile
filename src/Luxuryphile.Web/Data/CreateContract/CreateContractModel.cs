@@ -1,4 +1,5 @@
 ﻿using Luxuryphile.Core.DTO;
+using System.ComponentModel.DataAnnotations;
 
 namespace Luxuryphile.Web.Data.CreateContract
 {
@@ -6,8 +7,10 @@ namespace Luxuryphile.Web.Data.CreateContract
     {
         public decimal Provision { get; set; }
 
+        [Required]
         public string FirstName { get; set; }
 
+        [Required]
         public string LastName { get; set; }
 
         public string Email { get; set; }
