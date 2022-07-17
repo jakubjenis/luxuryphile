@@ -21,6 +21,7 @@ public class FakeDataService
                 name == null ||
                 i.Number.ToString().ToLower().Contains(name.ToLower()) ||
                 i.Seller.ToLower().Contains(name.ToLower()))
+            .OrderByDescending(o => o.DateCreated)
             .ToArray();
     }
     public Task<Guid> CreateContract(CreateContractRequest request)
