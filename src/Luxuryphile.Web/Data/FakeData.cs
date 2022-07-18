@@ -1,4 +1,4 @@
-﻿using Luxuryphile.Core.DTO;
+﻿using Luxuryphile.Api.Contract;
 
 namespace Luxuryphile.Web.Data;
 
@@ -21,7 +21,8 @@ public static class FakeData
                 number,
                 DateTime.Now,
                 0.2M,
-                new SellerDetail(
+                new ClientDetail(
+                    Guid.NewGuid(),
                     "Jakub",
                     "Jenis",
                     "jakubjenis@gmail.com",
@@ -29,7 +30,11 @@ public static class FakeData
                     "Hugo Haase 2",
                     DateOnly.FromDateTime(DateTime.Now.AddYears(-30)),
                     "SJ234778",
-                    null)
+                    null),
+                new SoldItem[]
+                {
+                    new SoldItem("Rolex Explorer", 120000, "CZK", "Bez vady")
+                }
             );
     }
 }

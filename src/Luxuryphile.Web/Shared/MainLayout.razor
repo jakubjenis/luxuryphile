@@ -1,18 +1,23 @@
 @inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu/>
-    </div>
+<div class="flex antialiased
+    text-slate-500 dark:text-slate-400
+    bg-slate-100 dark:bg-slate-900">
 
-    <main>
-        <div class="top-row px-4 auth">
-            <LoginDisplay/>
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+    <div class="flex flex-col
+                w-64 h-screen py-8
+                bg-slate-50 dark:bg-slate-800">
+
+        <h2 class="text-3xl font-semibold text-center text-white">
+            Logo
+        </h2>
+        <div class="flex flex-col justify-between mt-6">
+            <NavMenu/>
         </div>
-
-        <article class="content px-4">
+    </div>
+    <div class="w-full h-full m-8 overflow-y-auto">
+        <div class="">
             @Body
-        </article>
-    </main>
+        </div>
+    </div>
 </div>

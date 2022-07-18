@@ -2,11 +2,48 @@
 @using Luxuryphile.Web.Data
 @inject FakeDataService _fakeDataService
 
-<PageTitle>Smlouva</PageTitle>
+<PageTitle>Smlouva @_contract?.Number</PageTitle>
 
-<h1>Smlouva @Id</h1>
+@if (_contract is not null)
+{
+    <h1>Smlouva @_contract.Number</h1>
+
+    {
+        var seller = _contract.Seller;
+
+        <h4>@seller.FirstName @seller.LastName</h4>
+
+        <p>@seller.Email @seller.Phone</p>
+        <p>@seller.Address</p>
+        <p>@seller.DateOfBirth</p>
+        <p>@seller.DocumentNumber</p>
+        <p>TODO: bank accounts</p>
+
+        var items = _contract.Items;
+
+        <ul class="list-group">
+            @foreach(var item in items)
+            {                        
+                <li class="list-group-item">
+                    @item.Description<br/>
+                    @item.FormattedPrice
+                </li>    
+            }        
+        </ul>
+
+    }
+}
 
 @code {
     [Parameter]
     public Guid Id { get; set; }
+
+    private Api.Contract.ContractDetail? _contract;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _contract = await _fakeDataService.GetContract(Id);
+    }
 }
+
+

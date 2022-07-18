@@ -1,5 +1,4 @@
-﻿using Luxuryphile.Core.DTO;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Luxuryphile.Web.Data.CreateContract
 {

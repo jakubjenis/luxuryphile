@@ -1,0 +1,62 @@
+﻿@page "/clients"
+@using Luxuryphile.Web.Data
+@using Luxuryphile.Api.Contract
+@inject FakeDataService _fakeDataService
+@inject NavigationManager _navigationManager
+
+<PageTitle>Klienti</PageTitle>
+
+<h1 class="text-2xl">Klienti</h1>
+
+
+<input type="text"
+       class="border-2 px-2 py-1 my-4 rounded-md border-solid border-slate-800 " 
+       @oninput="Search"/>
+
+@if (_clients == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <div class="grid gap-2">
+    @foreach (var client in _clients)
+    {
+        <div class="flex items-center p-3 gap-3 rounded-lg
+            bg-slate-200 dark:bg-slate-800
+            cursor-pointer">
+            <div class="float-left overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
+                <svg class="absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div>
+            <div class="text-base text-slate-600 dark:text-slate-300 font-semibold">
+                @client.FirstName @client.LastName
+            </div>
+                <div class="text-slate-400 dark:text-slate-500">
+                    jakubjenis@gmail.com
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+    
+    
+}
+
+@code {
+    private ClientRow[]? _clients;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        _clients = await _fakeDataService.GetClients();
+    }
+
+    async Task Search(ChangeEventArgs arg)
+    {
+        _clients = await _fakeDataService.GetClients((string?)arg.Value);
+    }
+}
+

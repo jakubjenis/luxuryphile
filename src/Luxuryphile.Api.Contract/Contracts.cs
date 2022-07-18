@@ -1,17 +1,4 @@
-﻿namespace Luxuryphile.Core.DTO;
-
-public record CreateContractRequest(
-    CreateSellerRequest Seller,
-    decimal Provision);
-
-public record CreateSellerRequest(
-    string FirstName,
-    string LastName,
-    string Email,
-    string Phone,
-    string Address,
-    DateOnly DateOfBirth,
-    string DocumentNumber);
+﻿namespace Luxuryphile.Api.Contract;
 
 public record ContractRow(Guid Id,
     int Number, 
@@ -24,21 +11,21 @@ public record ContractDetail(
     int Number,
     DateTime DateCreated,
     decimal Provision,
-    SellerDetail Seller);
+    ClientDetail Seller,
+    SoldItem[] Items);
 
-public record SellerDetail(
+public record CreateContractRequest(
+    CreateSellerRequest Seller,
+    SoldItem[] Items,
+    decimal Provision);
+
+public record CreateSellerRequest(
     string FirstName,
     string LastName,
     string Email,
     string Phone,
     string Address,
     DateOnly DateOfBirth,
-    string DocumentNumber,
-    List<BankAccount>? BankAccounts)
-{
-    public string FullName => $"{FirstName} {LastName}";
-}
+    string DocumentNumber);
 
-public record BankAccount(
-    string BBAN,
-    string Currency);
+

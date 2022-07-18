@@ -17,4 +17,8 @@
       <ProjectReference Include="..\Luxuryphile.Api.Contract\Luxuryphile.Api.Contract.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages\Contracts" />
+    </ItemGroup>
+
 </Project>

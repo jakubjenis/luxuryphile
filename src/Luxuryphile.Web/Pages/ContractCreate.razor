@@ -1,7 +1,7 @@
 ﻿@page "/contracts/create/"
-@using Luxuryphile.Core.DTO
 @using Luxuryphile.Web.Data
 @using Luxuryphile.Web.Data.CreateContract
+@using Luxuryphile.Api.Contract
 @inject FakeDataService _fakeDataService
 @inject NavigationManager _navManager
 
@@ -113,6 +113,13 @@
                     _createContractModel.Address,
                     _createContractModel.DateOfBirth,
                     _createContractModel.DocumentNumber),
+                _createContractModel.Items.Select(o => 
+                    new SoldItem(
+                        o.Description,
+                        o.Price,
+                        o.Currency,
+                        o.Faults
+                    )).ToArray(),
                 _createContractModel.Provision);
 
         var contractGuid = await _fakeDataService.CreateContract(request);

@@ -1,4 +1,25 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿<aside aria-label="Sidebar">
+   <div class="py-4 px-3 bg-slate-50 rounded dark:bg-slate-800">
+      <ul class="space-y-2">
+         <li>
+             <NavLink class="flex items-center p-2 text-base font-normal text-slate-900 rounded-lg dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700" 
+                      href="" Match="NavLinkMatch.All">
+                 <span class="oi oi-home" aria-hidden="true"></span> Home
+             </NavLink>
+         </li>
+         <li>
+             <NavLink class="flex items-center p-2 text-base font-normal text-slate-900 rounded-lg dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700" 
+                      href="Clients" Match="NavLinkMatch.All">
+                 <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-slate-500 transition duration-75 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                 <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+             </NavLink>
+         </li>        
+      </ul>
+   </div>
+</aside>
+
+
+@*<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">Luxuryphile.Web</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -12,6 +33,11 @@
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="Clients">
+                <span class="oi oi-plus" aria-hidden="true"></span> Klienti
             </NavLink>
         </div>
         <div class="nav-item px-3">
@@ -32,4 +58,4 @@
         collapseNavMenu = !collapseNavMenu;
     }
 
-}
+}*@
