@@ -1,6 +1,8 @@
 # create subscription manually
 # get subscription ID: 05b77f0d-8c60-44fb-8d5e-55b9f217c2b4
 
+# create azure container registry manually?
+
 #az login - ms account
 
 # create service principal
