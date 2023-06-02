@@ -32,7 +32,7 @@ jobs:
           context: ./sample
           file: ./sample/Dockerfile
           push: true
-          tags: luxuryphile/web:${{ github.sha }}
+          tags: luxuryphile.azurecr.io/luxuryphile/web:${{ github.sha }}
 
     #   - name: Run Bicep infrastructure deployment
     #     run: |
