@@ -63,8 +63,8 @@ jobs:
         run: |
           az deployment sub create \
             --location 'westeurope' \
-            --template-file ./main.bicep  \
-            --name 'deploy-luxuryfile-bicep'
+            --template-file ./main.bicep \
+            --name 'deploy-luxuryfile-bicep' \
             --parameters location=westeurope \
             --parameters rgName=rg-luxuryphile-dev \
             --parameters webAppName=as-luxuryphile-web-dev \
