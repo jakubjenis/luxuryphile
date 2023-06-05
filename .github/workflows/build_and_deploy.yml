@@ -71,7 +71,8 @@ jobs:
             --parameters dockerRegistryHost=${{ secrets.REGISTRY_HOST }} \
             --parameters dockerRegistryServerUsername=${{ secrets.REGISTRY_USERNAME }} \
             --parameters dockerRegistryServerPassword=${{ secrets.REGISTRY_PASSWORD }} \
-            --parameters dockerImage=luxuryphile/web:${{ github.sha }} \
+            --parameters dockerImage=luxuryphile/web:${{ github.sha }} 
+        working-directory: ./infra
 
 #   - name: Deploy container to Azure
 #     run: |
