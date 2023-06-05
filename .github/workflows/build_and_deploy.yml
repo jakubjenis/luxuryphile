@@ -59,10 +59,19 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
- 
-#   - name: Run Bicep infrastructure deployment
-#     run: |
-#       az deployment sub create --location <azure-location> --template-file <path-to-your-bicep-file> --parameters <path-to-your-parameters-file>
+      - name: Run Bicep infrastructure deployment
+        run: |
+          az deployment sub create \
+            --location 'westeurope' \
+            --template-file ./main.bicep  \
+            --name 'deploy-luxuryfile-bicep'
+            --parameters location=westeurope \
+            --parameters rgName=rg-luxuryphile-dev \
+            --parameters webAppName=as-luxuryphile-web-dev \
+            --parameters dockerRegistryHost=${{ secrets.DOCKER_LOGIN_SERVER }} \
+            --parameters dockerRegistryServerUsername=${{ secrets.DOCKER_USERNAME }} \
+            --parameters dockerRegistryServerPassword=${{ secrets.DOCKER_PASSWORD }} \
+            --parameters dockerImage=luxuryphile/web:${{ github.sha }} \
 
 #   - name: Deploy container to Azure
 #     run: |
