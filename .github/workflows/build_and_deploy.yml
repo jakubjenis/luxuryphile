@@ -68,9 +68,9 @@ jobs:
             --parameters location=westeurope \
             --parameters rgName=rg-luxuryphile-dev \
             --parameters webAppName=as-luxuryphile-web-dev \
-            --parameters dockerRegistryHost=${{ secrets.DOCKER_LOGIN_SERVER }} \
-            --parameters dockerRegistryServerUsername=${{ secrets.DOCKER_USERNAME }} \
-            --parameters dockerRegistryServerPassword=${{ secrets.DOCKER_PASSWORD }} \
+            --parameters dockerRegistryHost=${{ secrets.REGISTRY_HOST }} \
+            --parameters dockerRegistryServerUsername=${{ secrets.REGISTRY_USERNAME }} \
+            --parameters dockerRegistryServerPassword=${{ secrets.REGISTRY_PASSWORD }} \
             --parameters dockerImage=luxuryphile/web:${{ github.sha }} \
 
 #   - name: Deploy container to Azure
