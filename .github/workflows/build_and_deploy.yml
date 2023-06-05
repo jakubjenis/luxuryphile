@@ -68,6 +68,8 @@ jobs:
             --parameters location=westeurope \
             --parameters rgName=rg-luxuryphile-dev \
             --parameters webAppName=as-luxuryphile-web-dev \
+            --parameters appServicePlanTier=Free \
+            --parameters appServicePlanSku=F1 \
             --parameters dockerRegistryHost=${{ secrets.REGISTRY_HOST }} \
             --parameters dockerRegistryServerUsername=${{ secrets.REGISTRY_USERNAME }} \
             --parameters dockerRegistryServerPassword=${{ secrets.REGISTRY_PASSWORD }} \
